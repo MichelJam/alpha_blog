@@ -17,10 +17,10 @@ end
 def update
   @article.assign_attributes(article_params)
   if @article.save
-    flash[:notice] = "Article was successfully updated."
+    flash[:success] = "Article was successfully updated."
     redirect_to article_path(@article)
   else
-    flash[:notice] = "Article update failure."
+    flash[:danger] = "Article update failure."
     render :new
   end
 end
@@ -31,20 +31,20 @@ end
 def create
   @article = Article.new(article_params)
   if @article.save
-    flash[:notice] = "Article was successfully created."
+    flash[:success] = "Article was successfully created."
     redirect_to article_path(@article)
   else
-    flash[:notice] = "Article creation failure."
+    flash[:danger] = "Article creation failure."
     render :new
   end
 end
 
 def destroy
   if @article.destroy
-    flash[:notice] = "Article was successfully deleted."
+    flash[:success] = "Article was successfully deleted."
     redirect_to articles_path
   else
-    flash[:notice] = "Article deletion failure."
+    flash[:danger] = "Article deletion failure."
   end
 end
 
